@@ -1,0 +1,22 @@
+application: tha82app09
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /(.*\.(gif|png|jpg|ico|js|css|ttf|pdf))
+  static_files: \1
+  upload: (.*\.(gif|png|jpg|ico|js|css|ttf|pdf))
+- url: /css
+  static_dir: css
+- url: /js
+  static_dir: js
+- url: /img
+  static_dir: img
+- url: /.*
+  script: use_webapi.application
+
+libraries:
+- name: webapp2
+  version: "2.5.2"
